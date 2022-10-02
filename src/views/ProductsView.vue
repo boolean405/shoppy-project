@@ -26,7 +26,6 @@
                         data-bs-toggle="dropdown" aria-expanded="false" id="cat-selected">
                         Categories
                     </button>
-                    {{}}
                     <ul class="dropdown-menu" v-if="allCatNames">
                         <li><a href="" class="dropdown-item">All Products</a></li>
                         <li v-for="(cat,index) in allCatNames" :key="index"><a class="dropdown-item"
@@ -71,6 +70,8 @@ export default {
             allCatNames: [],
         };
     },
+
+
     mounted() {
 
         // all products getdata
@@ -98,6 +99,7 @@ export default {
                     console.log(this.catProducts);
                 });
         },
+
     },
 
     components: { ProductCard }
@@ -107,8 +109,5 @@ export default {
 
 </script>
 <style>
-.card:hover {
-    background-color: rgb(228, 236, 241);
-    cursor: pointer;
-}
+
 </style>
