@@ -29,7 +29,7 @@
                     </li>
                 </ul>
 
-                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>(1)</button>
+                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i><span v-if="loc_data_len >1"> ({{loc_data_len}})</span></button>
 
             </div>
         </div>
@@ -41,6 +41,25 @@
 
 export default {
     name: 'NavBar',
+
+    data(){
+        return {
+            loc_data_len : Number,
+        }
+    },
+    created() {
+        var cart = localStorage.getItem('mycart')
+        var loc_data = JSON.parse(cart);
+        var loc_data_list = [];
+        for (const i in loc_data) {
+            // console.log(loc_data[i])
+            loc_data_list.push(loc_data[i])
+        }
+        // console.log(loc_data_list)
+        var loc_data_len = loc_data_list.length;
+        // console.log(loc_data_len)
+        this.loc_data_len = loc_data_len
+    }
 }
 </script>
 <style>
