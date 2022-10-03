@@ -31,14 +31,11 @@
                         <li v-for="(cat,index) in allCatNames" :key="index"><a class="dropdown-item"
                                 @click="getCats(cat)" href="#">{{cat}}</a>
                         </li>
-
                     </ul>
                 </div>
                 <!-- dropdown -->
             </div>
-
         </div>
-
     </div>
     <!-- cat section -->
 
@@ -48,7 +45,7 @@
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-for="(product,index) in products" :key="index">
                 <div>
-                    <ProductCard :product="product"></ProductCard>
+                    <ProductCard :product="product" :rating="product.rating"></ProductCard>
                 </div>
             </div>
         </div>
@@ -68,9 +65,9 @@ export default {
         return {
             products: [],
             allCatNames: [],
+
         };
     },
-
 
     mounted() {
 
@@ -87,7 +84,6 @@ export default {
                 this.allCatNames = response.data;
                 // console.log(this.allCatName);
             });
-
     },
 
     methods: {
@@ -104,8 +100,6 @@ export default {
 
     components: { ProductCard }
 }
-
-
 
 </script>
 <style>

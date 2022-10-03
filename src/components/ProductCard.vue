@@ -3,22 +3,51 @@
         <img :src="product.image" class="card-img-top" height="300">
         <div class="card-body">
             <h6 class="card-title">{{product.title.substr(0,20)}}</h6>
-            <p class="card-text">$ {{product.price}}</p>
-            <a href="#" class="btn btn-outline-dark me-3">Add to cart</a>
-            <a href="#" class="btn btn-outline-dark">Details</a>
+            <p class="card-text mt-3">$ {{product.price}}</p>
+            <RatingComp :product="product" :rating="rating"></RatingComp>
+            <a href="#" class="btn btn-outline-dark me-3 mt-3" @click="addToCart(product)">Add to cart</a>
+            <router-link href="#" class="btn btn-outline-dark mt-3" :to="{name: 'details' ,params: {id: product.id}}">
+                Details
+            </router-link>
 
         </div>
     </div>
 </template>
 
 <script>
+import RatingComp from './RatingComp.vue';
 
 export default {
     name: "ProductCard",
     props: {
         product: Object,
+        rating: Object,
     },
+    // data() {
+    //     return {
+    //         count: 0
+    //     }
+    // },
+    methods: {
+        addToCart(product) {
+            var p_data = product;
+            p_data['qty'] = 1;
+            // console.log(p_data);
+            
+            var cart = localStorage.getItem('cart');
+            if (!cart) {
+                var cart_list = [];
+            } else {
+                cart_list = JSON.parse(cart);
+            }
+            cart_list.push(p_data);
+            localStorage.setItem('cart', JSON.stringify(cart_list));
+            // console.log(count)
 
+
+        }
+    },
+    components: { RatingComp }
 }
 
 </script>

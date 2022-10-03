@@ -17,39 +17,19 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <router-link to="/" class="nav-link active" aria-current="page">Home</router-link>
+                        <router-link to="/" class="nav-link active me-3" aria-current="page">Home</router-link>
                     </li>
 
                     <li class="nav-item">
-                        <router-link to="/about" class="nav-link active" aria-current="page">About</router-link>
+                        <router-link to="/about" class="nav-link active me-3" aria-current="page">About</router-link>
                     </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Shop
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li>
-                                <router-link to="/products" class="dropdown-item">All Products</router-link>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <router-link to="/cart" class="dropdown-item">Cart</router-link>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Arrivals</a>
-                            </li>
-                        </ul>
+                    <li class="nav-item">
+                        <router-link to="/products" class="nav-link active me-3" aria-current="page">Shop</router-link>
                     </li>
-
                 </ul>
 
-                <button class="btn btn-outline-dark" type="submit"><i
-                        class="fa-solid fa-cart-shopping"></i>({{cartCount}})</button>
+                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>(1)</button>
 
             </div>
         </div>
@@ -58,22 +38,15 @@
 
 </template>
 <script>
-// import cartCount from './ProductCard.vue'
-// console.log(cart.data().cartCount)
-// console.log(cartCount);
-// var cartNumber = cart.data().cartCount
-// import ProductCard from './ProductCard.vue';
 
 export default {
     name: 'NavBar',
-    // props: {
-    //     cartCount: Number,
-    // },
-    data(){
-        return{
-            cartCount: 1
-        }
-    }
-
 }
 </script>
+<style>
+.nav-link:hover {
+    background-color: rgb(206, 206, 206);
+    letter-spacing: 6px;
+
+}
+</style>

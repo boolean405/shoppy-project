@@ -1,6 +1,6 @@
 <template>
   <!-- <NavBar></NavBar> -->
-  <NavBar :cartCount="cartCount"></NavBar>
+  <NavBar></NavBar>
   <!-- <NavBar></NavBar> -->
 
   <router-view />

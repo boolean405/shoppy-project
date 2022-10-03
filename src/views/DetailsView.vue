@@ -1,14 +1,62 @@
 <template>
-    <h2>Hello id is </h2>
+
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                <img :src="product.image" width="300">
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+                <div class="mt-5">
+                    <h2 class="my-5">{{product.title}}</h2>
+                    <p class="fs-3">$ {{product.price}}</p>
+
+                    <!-- rating -->
+                    <RatingComp :product="product" :rating="rating"></RatingComp>
+                    <!-- rating -->
+
+                    <p class="fst-italic">{{rating.count}} Sold</p>
+                    <p class="mt-3">{{product.description}}</p>
+
+                    <button type="button" class="btn btn-outline-dark mt-3">Add to cart</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 // const axios = require('axios')
 
+import axios from 'axios';
+import RatingComp from '../components/RatingComp.vue';
+
 
 export default {
     name: "DetailsView",
-
-
+    data() {
+        return {
+            product: [],
+            rating: {},
+        };
+    },
+    mounted() {
+        this.getProductById();
+    },
+    methods: {
+        getProductById() {
+            axios.get(`https://fakestoreapi.com/products/${this.$route.params.id}`)
+                .then(response => {
+                    this.product = response.data;
+                    this.rating = response.data.rating;
+                    // console.log(this.rating.rate);
+                    // console.log(typeof(this.rating.rate));
+                });
+        }
+    },
+    components: { RatingComp }
 }
 </script>
+<style>
+
+</style>
