@@ -28,7 +28,7 @@ export default {
     methods: {
         addToCart(product) {
             var p_data = product;
-            // p_data['qty'] = 1;
+            p_data['qty'] = 1;
             // var id = product.id;
             // var title = product.title;
             // var price = product.price;
