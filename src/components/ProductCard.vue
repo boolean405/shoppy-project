@@ -29,29 +29,26 @@ export default {
         addToCart(product) {
             var p_data = product;
             p_data['qty'] = 1;
-            // var id = product.id;
-            // var title = product.title;
-            // var price = product.price;
-            // var image = product.image;
-
-            // var p_data = {
-            //     id: id,
-            //     title: title,
-            //     price: price,
-            //     image: image,
-            //     qty: 1
-            // }
 
             var cart = localStorage.getItem('mycart'); //string
-
             if (!cart) {
                 var cart_list = [];
+                cart_list.push(p_data);
 
             } else {
                 cart_list = JSON.parse(cart);
+                for (const i in cart_list) {
+                    // console.log(cart_list[i]);
+                    // console.log(cart_list[i].id);
+                    if (cart_list[i].id !== p_data.id) {
+                        cart_list.push(p_data);
+                    } else {
+                        cart_list[i].qty++;
+                    }
+                }
             }
-            cart_list.push(p_data);
             localStorage.setItem('mycart', JSON.stringify(cart_list));
+            console.log(cart_list);
 
             location.reload();
         }
