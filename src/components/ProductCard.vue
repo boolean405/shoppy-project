@@ -27,31 +27,57 @@ export default {
 
     methods: {
         addToCart(product) {
+            // console.log(product)
+            product['qty'] = 1;
             var p_data = product;
-            p_data['qty'] = 1;
 
-            var cart = localStorage.getItem('mycart'); //string
+
+            var cart = localStorage.getItem('myCart');
             if (!cart) {
-                var cart_list = [];
-                cart_list.push(p_data);
+                var myArr = [];
 
             } else {
-                cart_list = JSON.parse(cart);
-                for (const i in cart_list) {
-                    // console.log(cart_list[i]);
-                    // console.log(cart_list[i].id);
-                    if (cart_list[i].id !== p_data.id) {
-                        cart_list.push(p_data);
-                    } else {
-                        cart_list[i].qty++;
-                    }
-                }
-            }
-            localStorage.setItem('mycart', JSON.stringify(cart_list));
-            console.log(cart_list);
+                myArr = JSON.parse(cart);
 
+            }
+
+            myArr.push(p_data)
+            // console.log(p_data);
+            localStorage.setItem('myCart', JSON.stringify(myArr))
             location.reload();
+
+            // var cart = localStorage.getItem('mycart'); //string
+            // if (!cart) {
+            //     var cart_list = [];
+            //     cart_list.push(p_data);
+            // cart_list = JSON.parse(cart);
+
+            // } else {
+            // cart_list = JSON.parse(cart);
+            // console.log(cart_list)
+            // for (let i in cart_list) {
+            //     console.log(cart_list[i])
+
+
+            // console.log(cart_list[i]);
+            // console.log(i);
+            // console.log(cart_list[i].id);
+
+
+            // if (cart_list[i].id === p_data.id) {
+            //     cart_list[i].qty += 1;
+
+            // } else {
+            //     cart_list.push(p_data);
+            // }
+
+            // }
         }
+        // localStorage.setItem('mycart', JSON.stringify(cart_list));
+        // location.reload();
+        // console.log(cart);
+
+        // }
     },
     components: { RatingComp }
 }

@@ -17,7 +17,8 @@
                     <p class="fst-italic">{{rating.count}} Sold</p>
                     <p class="mt-3">{{product.description}}</p>
 
-                    <button type="button" class="btn btn-outline-dark mt-3" @click="addToCart(product)">Add to cart</button>
+                    <!-- <button type="button" class="btn btn-outline-dark mt-3" @click="addToCart(product)">Add to
+                        cart</button> -->
 
                 </div>
             </div>
@@ -53,34 +54,32 @@ export default {
                     // console.log(typeof(this.rating.rate));
                 });
         },
-        addToCart(product) {
-            var p_data = product;
-            // var id = product.id;
-            // var title = product.title;
-            // var price = product.price;
-            // var image = product.image;
+        // addToCart(product) {
+        //     var p_data = product;
+        //     p_data['qty'] = 1;
 
-            // var p_data = {
-            //     id: id,
-            //     title: title,
-            //     price: price,
-            //     image: image,
-            //     qty: 1
-            // }
+        //     var cart = localStorage.getItem('mycart'); //string
+        //     if (!cart) {
+        //         var cart_list = [];
+        //         cart_list.push(p_data);
 
-            var cart = localStorage.getItem('mycart'); //string
+        //     } else {
+        //         cart_list = JSON.parse(cart);
+        //         for (const i in cart_list) {
+        //             // console.log(cart_list[i]);
+        //             // console.log(cart_list[i].id);
+        //             if (cart_list[i].id !== p_data.id) {
+        //                 cart_list.push(p_data);
+        //             } else {
+        //                 cart_list[i].qty++;
+        //             }
+        //         }
+        //     }
+        //     localStorage.setItem('mycart', JSON.stringify(cart_list));
+        //     console.log(cart_list);
 
-            if (!cart) {
-                var cart_list = [];
-
-            } else {
-                cart_list = JSON.parse(cart);
-            }
-            cart_list.push(p_data);
-            localStorage.setItem('mycart', JSON.stringify(cart_list));
-
-            location.reload();
-        }
+        //     location.reload();
+        // }
     },
     components: { RatingComp }
 }

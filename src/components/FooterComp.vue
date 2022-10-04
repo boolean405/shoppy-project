@@ -1,7 +1,7 @@
 <template>
     <!-- footer section -->
     <footer>
-        <div class="bg-dark text-center p-5">
+        <div class="bg-dark text-center p-5 mt-5">
             <div class="row">
                 <div class="text-light">
                     <p>Copyright © <a href="/">Shoppy</a> | Created by <a href="https://github.com/maungbo404"

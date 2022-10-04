@@ -60,17 +60,19 @@ export default {
     mounted() {
         // getCartFromLocal()
         // console.log(this.cart_products);
-        var cart_str = localStorage.getItem('mycart')
-        if (cart_str) {
-            var cart_arr = JSON.parse(cart_str);
-            // console.log(cart_arr.length);
-            // console.log(typeof (cart_arr));
-            if (cart_arr.length) {
-                this.cart_products = cart_arr;
-                // console.log('shi tal in cart list')
-            } else {
-                console.log('error in local list')
-            }
+        var cart_str = localStorage.getItem('myCart')
+        var cart_arr = JSON.parse(cart_str);
+
+        // console.log(cart_str);
+        if (cart_arr) {
+            this.cart_products = cart_arr;
+            // if (cart_arr.length > 0) {
+              
+            // } else {
+            //     console.log('error in local list')
+            // }
+        } else {
+            console.log('ma shi bue')
         }
 
     },
