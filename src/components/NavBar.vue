@@ -29,13 +29,15 @@
                     </li>
                 </ul>
 
-                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>
-                    <span v-if="cart_products">
-                        <span>
-                            ({{cart_products.length}})
+                <router-link to="/cart">
+                    <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>
+                        <span v-if="cart_products">
+                            <span>
+                                ({{cart_products.length}})
+                            </span>
                         </span>
-                    </span>
-                </button>
+                    </button>
+                </router-link>
 
             </div>
         </div>
@@ -67,7 +69,7 @@ export default {
         if (cart_arr) {
             this.cart_products = cart_arr;
             // if (cart_arr.length > 0) {
-              
+
             // } else {
             //     console.log('error in local list')
             // }

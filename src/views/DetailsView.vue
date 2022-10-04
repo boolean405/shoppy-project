@@ -19,6 +19,7 @@
 
                     <!-- <button type="button" class="btn btn-outline-dark mt-3" @click="addToCart(product)">Add to
                         cart</button> -->
+                    <a class="btn btn-outline-dark me-3 mt-3" @click="addToCart(product)"> <i class="fa-solid fa-cart-shopping me-2"></i><span>Add to cart</span></a>
 
                 </div>
             </div>
@@ -54,32 +55,25 @@ export default {
                     // console.log(typeof(this.rating.rate));
                 });
         },
-        // addToCart(product) {
-        //     var p_data = product;
-        //     p_data['qty'] = 1;
+        addToCart(product) {
+            // console.log(product)
+            product['qty'] = 1;
+            var p_data = product;
 
-        //     var cart = localStorage.getItem('mycart'); //string
-        //     if (!cart) {
-        //         var cart_list = [];
-        //         cart_list.push(p_data);
 
-        //     } else {
-        //         cart_list = JSON.parse(cart);
-        //         for (const i in cart_list) {
-        //             // console.log(cart_list[i]);
-        //             // console.log(cart_list[i].id);
-        //             if (cart_list[i].id !== p_data.id) {
-        //                 cart_list.push(p_data);
-        //             } else {
-        //                 cart_list[i].qty++;
-        //             }
-        //         }
-        //     }
-        //     localStorage.setItem('mycart', JSON.stringify(cart_list));
-        //     console.log(cart_list);
+            var cart = localStorage.getItem('myCart');
+            if (!cart) {
+                var myArr = [];
 
-        //     location.reload();
-        // }
+            } else {
+                myArr = JSON.parse(cart);
+
+            }
+            myArr.push(p_data)
+            // console.log(p_data);
+            localStorage.setItem('myCart', JSON.stringify(myArr))
+            location.reload();
+        }
     },
     components: { RatingComp }
 }

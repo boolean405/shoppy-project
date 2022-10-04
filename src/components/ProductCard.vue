@@ -40,44 +40,12 @@ export default {
                 myArr = JSON.parse(cart);
 
             }
-
             myArr.push(p_data)
             // console.log(p_data);
             localStorage.setItem('myCart', JSON.stringify(myArr))
             location.reload();
 
-            // var cart = localStorage.getItem('mycart'); //string
-            // if (!cart) {
-            //     var cart_list = [];
-            //     cart_list.push(p_data);
-            // cart_list = JSON.parse(cart);
-
-            // } else {
-            // cart_list = JSON.parse(cart);
-            // console.log(cart_list)
-            // for (let i in cart_list) {
-            //     console.log(cart_list[i])
-
-
-            // console.log(cart_list[i]);
-            // console.log(i);
-            // console.log(cart_list[i].id);
-
-
-            // if (cart_list[i].id === p_data.id) {
-            //     cart_list[i].qty += 1;
-
-            // } else {
-            //     cart_list.push(p_data);
-            // }
-
-            // }
         }
-        // localStorage.setItem('mycart', JSON.stringify(cart_list));
-        // location.reload();
-        // console.log(cart);
-
-        // }
     },
     components: { RatingComp }
 }

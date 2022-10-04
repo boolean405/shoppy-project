@@ -1,18 +1,6 @@
 <template>
 
-    <!-- text section -->
-    <div class="bg-dark mb-5">
-        <div class="container">
-            <div class="row">
-                <div class=" col-12 text-center py-5">
-                    <p class="fs-1 fw-bold text-light">All Products</p>
-                    <p class="fs-5 text-secondary">Let's start shopping with us
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <HeaderText title="All Products" text="Let's start shopping with us"></HeaderText>
 
     <!-- cat section -->
     <div class="container">
@@ -57,6 +45,7 @@
 
 <script>
 import ProductCard from '@/components/ProductCard.vue'
+import HeaderText from '../components/HeaderText.vue'
 const axios = require('axios')
 
 export default {
@@ -72,7 +61,7 @@ export default {
     mounted() {
 
         // all products getdata
-       this.getAllProducts();
+        this.getAllProducts();
 
         // cats getdata
         axios.get('https://fakestoreapi.com/products/categories')
@@ -93,17 +82,17 @@ export default {
         },
 
         // all products getdata
-        getAllProducts(){
-        axios.get('https://fakestoreapi.com/products')
-            .then(response => {
-                this.products = response.data;
-                // console.log(this.products[1].id);
-            });
+        getAllProducts() {
+            axios.get('https://fakestoreapi.com/products')
+                .then(response => {
+                    this.products = response.data;
+                    // console.log(this.products[1].id);
+                });
         }
 
     },
 
-    components: { ProductCard }
+    components: { ProductCard, HeaderText }
 }
 
 </script>
