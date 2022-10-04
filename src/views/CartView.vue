@@ -2,7 +2,7 @@
     <HeaderText title="All Carts" text="Start order now!"></HeaderText>
     <div class="container my-5 ">
         <div class="row ">
-            <div class="col-12">
+            <div class="col-12" v-if="carts">
                 <!-- <button class="btn btn-primary" type="button">Button</button> -->
                 <button class="btn btn-outline-dark" type="button" @click="removeAllCarts()">Remove Items from
                     cart</button>
@@ -11,7 +11,7 @@
     </div>
     <!-- cart -->
     <div class="container" v-if="carts">
-        <div class="row" v-for="cart in carts" :key="cart.index">
+        <div class="row" v-for="(cart,index) in carts" :key="index">
             <div class="col">
                 <div class="card mb-5">
                     <div class="row g-0">
@@ -55,7 +55,7 @@ export default {
         removeAllCarts() {
             localStorage.clear();
             location.reload();
-        }
+        },
     },
     components: { HeaderText }
 }
