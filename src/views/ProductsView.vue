@@ -29,7 +29,7 @@
                     <ul class="dropdown-menu" v-if="allCatNames">
                         <li><a class="dropdown-item" @click="getAllProducts()">All Products</a></li>
                         <li v-for="(cat,index) in allCatNames" :key="index"><a class="dropdown-item"
-                                @click="getCats(cat)" href="#">{{cat}}</a>
+                                @click="getCats(cat)">{{cat}}</a>
                         </li>
                     </ul>
                 </div>

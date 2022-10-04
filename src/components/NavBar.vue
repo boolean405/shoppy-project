@@ -61,14 +61,16 @@ export default {
         // getCartFromLocal()
         // console.log(this.cart_products);
         var cart_str = localStorage.getItem('mycart')
-        var cart_arr = JSON.parse(cart_str);
-        console.log(cart_arr.length);
-        console.log(typeof (cart_arr));
-        if (cart_arr.length) {
-            this.cart_products = cart_arr;
-            // console.log('shi tal in cart list')
-        } else {
-            console.log('error in local list')
+        if (cart_str) {
+            var cart_arr = JSON.parse(cart_str);
+            // console.log(cart_arr.length);
+            // console.log(typeof (cart_arr));
+            if (cart_arr.length) {
+                this.cart_products = cart_arr;
+                // console.log('shi tal in cart list')
+            } else {
+                console.log('error in local list')
+            }
         }
 
     },
