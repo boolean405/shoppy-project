@@ -32,7 +32,7 @@
                 <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>
                     <span v-if="cart_products">
                         <span>
-                            {{cart_products.length}}
+                            ({{cart_products.length}})
                         </span>
                     </span>
                 </button>
@@ -66,7 +66,7 @@ export default {
         console.log(typeof (cart_arr));
         if (cart_arr.length) {
             this.cart_products = cart_arr;
-            console.log('shi tal in cart list')
+            // console.log('shi tal in cart list')
         } else {
             console.log('error in local list')
         }

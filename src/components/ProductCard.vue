@@ -53,9 +53,6 @@ export default {
             localStorage.setItem('mycart', JSON.stringify(cart_list));
 
             location.reload();
-
-
-
         }
     },
     components: { RatingComp }

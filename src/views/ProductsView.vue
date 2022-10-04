@@ -27,7 +27,7 @@
                         Categories
                     </button>
                     <ul class="dropdown-menu" v-if="allCatNames">
-                        <li><a href="" class="dropdown-item">All Products</a></li>
+                        <li><a class="dropdown-item" @click="getAllProducts()">All Products</a></li>
                         <li v-for="(cat,index) in allCatNames" :key="index"><a class="dropdown-item"
                                 @click="getCats(cat)" href="#">{{cat}}</a>
                         </li>
@@ -72,11 +72,7 @@ export default {
     mounted() {
 
         // all products getdata
-        axios.get('https://fakestoreapi.com/products')
-            .then(response => {
-                this.products = response.data;
-                // console.log(this.products[1].id);
-            });
+       this.getAllProducts();
 
         // cats getdata
         axios.get('https://fakestoreapi.com/products/categories')
@@ -95,6 +91,15 @@ export default {
                     console.log(this.catProducts);
                 });
         },
+
+        // all products getdata
+        getAllProducts(){
+        axios.get('https://fakestoreapi.com/products')
+            .then(response => {
+                this.products = response.data;
+                // console.log(this.products[1].id);
+            });
+        }
 
     },
 

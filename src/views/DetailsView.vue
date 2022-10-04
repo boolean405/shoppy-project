@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container mb-5">
+    <div class="container mb-5 " id="details_container">
         <div class="row my-5">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                 <img :src="product.image" width="300">
@@ -17,7 +17,7 @@
                     <p class="fst-italic">{{rating.count}} Sold</p>
                     <p class="mt-3">{{product.description}}</p>
 
-                    <button type="button" class="btn btn-outline-dark mt-3">Add to cart</button>
+                    <button type="button" class="btn btn-outline-dark mt-3" @click="addToCart(product)">Add to cart</button>
 
                 </div>
             </div>
@@ -52,6 +52,34 @@ export default {
                     // console.log(this.rating.rate);
                     // console.log(typeof(this.rating.rate));
                 });
+        },
+        addToCart(product) {
+            var p_data = product;
+            // var id = product.id;
+            // var title = product.title;
+            // var price = product.price;
+            // var image = product.image;
+
+            // var p_data = {
+            //     id: id,
+            //     title: title,
+            //     price: price,
+            //     image: image,
+            //     qty: 1
+            // }
+
+            var cart = localStorage.getItem('mycart'); //string
+
+            if (!cart) {
+                var cart_list = [];
+
+            } else {
+                cart_list = JSON.parse(cart);
+            }
+            cart_list.push(p_data);
+            localStorage.setItem('mycart', JSON.stringify(cart_list));
+
+            location.reload();
         }
     },
     components: { RatingComp }
@@ -61,4 +89,7 @@ export default {
 /* .row{
     margin-bottom: 100px;
 } */
+#details_container {
+    height: 650px;
+}
 </style>
