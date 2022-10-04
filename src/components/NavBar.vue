@@ -29,7 +29,13 @@
                     </li>
                 </ul>
 
-                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i><span v-if="loc_data_len >1"> ({{loc_data_len}})</span></button>
+                <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>
+                    <span v-if="cart_products">
+                        <span>
+                            {{cart_products.length}}
+                        </span>
+                    </span>
+                </button>
 
             </div>
         </div>
@@ -41,25 +47,49 @@
 
 export default {
     name: 'NavBar',
-
-    data(){
+    data() {
         return {
-            loc_data_len : Number,
+            // loc_data_len: Number,
+            cart_products: [],
+
         }
     },
-    created() {
-        var cart = localStorage.getItem('mycart')
-        var loc_data = JSON.parse(cart);
-        var loc_data_list = [];
-        for (const i in loc_data) {
-            // console.log(loc_data[i])
-            loc_data_list.push(loc_data[i])
+    // props: {
+    //     products: Object,
+    // },
+    mounted() {
+        // getCartFromLocal()
+        // console.log(this.cart_products);
+        var cart_str = localStorage.getItem('mycart')
+        var cart_arr = JSON.parse(cart_str);
+        console.log(cart_arr.length);
+        console.log(typeof (cart_arr));
+        if (cart_arr.length) {
+            this.cart_products = cart_arr;
+            console.log('shi tal in cart list')
+        } else {
+            console.log('error in local list')
         }
-        // console.log(loc_data_list)
-        var loc_data_len = loc_data_list.length;
-        // console.log(loc_data_len)
-        this.loc_data_len = loc_data_len
-    }
+
+    },
+
+    // methods: {
+    //     getCartFromLocal() {
+    //         var cart_str = localStorage.getItem('mycart')
+    //         var cart_arr = JSON.parse(cart_str);
+    //         console.log(cart_arr.length);
+    //         console.log(typeof (cart_arr));
+    //         if (cart_arr.length) {
+    //             this.cart_products = cart_arr;
+    //             console.log('shi tal in cart list')
+    //         } else {
+    //             console.log('error in local list')
+    //         }
+
+
+    //     }
+    // }
+
 }
 </script>
 <style>

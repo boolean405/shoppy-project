@@ -52,15 +52,10 @@ export default {
             cart_list.push(p_data);
             localStorage.setItem('mycart', JSON.stringify(cart_list));
 
+            location.reload();
 
-            // var loc_data = JSON.parse(cart);
-            // var loc_data_list = [];
-            // for (const i in loc_data) {
-            //     // console.log(loc_data[i])
-            //     loc_data_list.push(loc_data[i])
-            // }
-            // var loc_data_len = loc_data_list.length;
-            // this.loc_data_len = loc_data_len;
+
+
         }
     },
     components: { RatingComp }

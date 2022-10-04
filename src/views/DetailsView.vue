@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="row my-5">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                 <img :src="product.image" width="300">
@@ -58,5 +58,7 @@ export default {
 }
 </script>
 <style>
-
+/* .row{
+    margin-bottom: 100px;
+} */
 </style>
