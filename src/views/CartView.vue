@@ -61,7 +61,7 @@
         <!-- check out -->
     </div>
 
-    <div class="v-else">
+    <div v-else>
         <h2 class="text-center">You have no added items. Go to shop now!</h2>
         <button type="button" class="btn btn-outline-dark px-5 mx-auto d-block my-3">Shop Now</button>
         <img src="../assets/images/cart/girl_no_cart.jpg" class="img-fluid w-25 rounded mx-auto d-block">
