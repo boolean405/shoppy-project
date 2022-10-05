@@ -26,25 +26,33 @@ export default {
 
 
     methods: {
+
         addToCart(product) {
             // console.log(product)
             product['qty'] = 1;
             var p_data = product;
-
+            var status = true;
 
             var cart = localStorage.getItem('myCart');
             if (!cart) {
                 var myArr = [];
-
             } else {
                 myArr = JSON.parse(cart);
-
             }
-            myArr.push(p_data)
+            for (const p of myArr) {
+                if (p_data.id == p.id) {
+                    p.qty++;
+                    status = false;
+                    break;
+                }
+            }
+            if (status) {
+                myArr.push(p_data)
+            }
             // console.log(p_data);
             localStorage.setItem('myCart', JSON.stringify(myArr))
-            location.reload();
-
+            // location.reload();
+            this.$store.dispatch('getCartData');
         }
     },
     components: { RatingComp }

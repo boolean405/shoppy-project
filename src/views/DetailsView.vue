@@ -19,7 +19,8 @@
 
                     <!-- <button type="button" class="btn btn-outline-dark mt-3" @click="addToCart(product)">Add to
                         cart</button> -->
-                    <a class="btn btn-outline-dark me-3 mt-3" @click="addToCart(product)"> <i class="fa-solid fa-cart-shopping me-2"></i><span>Add to cart</span></a>
+                    <a class="btn btn-outline-dark me-3 mt-3" @click="addToCart(product)"> <i
+                            class="fa-solid fa-cart-shopping me-2"></i><span>Add to cart</span></a>
 
                 </div>
             </div>
@@ -59,20 +60,29 @@ export default {
             // console.log(product)
             product['qty'] = 1;
             var p_data = product;
-
+            var status = true;
 
             var cart = localStorage.getItem('myCart');
             if (!cart) {
                 var myArr = [];
-
             } else {
                 myArr = JSON.parse(cart);
-
             }
-            myArr.push(p_data)
+            for (const p of myArr) {
+                if (p_data.id == p.id) {
+                    p.qty++;
+                    status = false;
+                    break;
+                }
+            }
+            if (status) {
+                myArr.push(p_data)
+            }
             // console.log(p_data);
             localStorage.setItem('myCart', JSON.stringify(myArr))
-            location.reload();
+            // location.reload();
+            this.$store.dispatch('getCartData');
+
         }
     },
     components: { RatingComp }

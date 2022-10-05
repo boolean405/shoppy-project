@@ -31,10 +31,13 @@
 
                 <router-link to="/cart">
                     <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>
-                        <span v-if="cart_products">
-                            <span>
-                                ({{cart_products.length}})
+                        <span v-if="this.$store.state.local_cart.length > 0">
+                            <span class="cart_len rounded-circle">
+                                {{this.$store.state.local_cart.length}}
                             </span>
+                        </span>
+                        <span v-else class="cart_len rounded-circle">
+                            {{default_num}}
                         </span>
                     </button>
                 </router-link>
@@ -51,50 +54,9 @@ export default {
     name: 'NavBar',
     data() {
         return {
-            // loc_data_len: Number,
-            cart_products: [],
-
+            default_num: 0,
         }
     },
-    // props: {
-    //     products: Object,
-    // },
-    mounted() {
-        // getCartFromLocal()
-        // console.log(this.cart_products);
-        var cart_str = localStorage.getItem('myCart')
-        var cart_arr = JSON.parse(cart_str);
-
-        // console.log(cart_str);
-        if (cart_arr) {
-            this.cart_products = cart_arr;
-            // if (cart_arr.length > 0) {
-
-            // } else {
-            //     console.log('error in local list')
-            // }
-        } else {
-            console.log('ma shi bue')
-        }
-
-    },
-
-    // methods: {
-    //     getCartFromLocal() {
-    //         var cart_str = localStorage.getItem('mycart')
-    //         var cart_arr = JSON.parse(cart_str);
-    //         console.log(cart_arr.length);
-    //         console.log(typeof (cart_arr));
-    //         if (cart_arr.length) {
-    //             this.cart_products = cart_arr;
-    //             console.log('shi tal in cart list')
-    //         } else {
-    //             console.log('error in local list')
-    //         }
-
-
-    //     }
-    // }
 
 }
 </script>
@@ -103,5 +65,12 @@ export default {
     background-color: rgb(206, 206, 206);
     letter-spacing: 6px;
 
+}
+
+.cart_len {
+    background-color: black;
+    color: white;
+    padding: 0 5px;
+    margin-left: 5px;
 }
 </style>
