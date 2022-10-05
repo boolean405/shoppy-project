@@ -95,7 +95,7 @@ export default {
         },
 
         cartQtyDecr(cart) {
-            while (cart.qty > 1) {
+            if (cart.qty > 1) {
                 cart.qty--
 
             }
