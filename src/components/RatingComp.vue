@@ -9,6 +9,14 @@
             <i class="fa-regular fa-star"></i>
             <span>({{rating.rate}})</span>
         </div>
+        <div v-else-if="rating.rate <2.0">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <span>({{rating.rate}})</span>
+        </div>
         <div v-else-if="rating.rate <=2.0">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
@@ -60,6 +68,14 @@
             <span>({{rating.rate}})</span>
         </div>
         <div v-else-if="rating.rate <=4.5">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span>({{rating.rate}})</span>
+        </div>
+        <div v-else-if="rating.rate < 5.0">
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
