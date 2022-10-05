@@ -53,7 +53,7 @@
         <div class="container mb-3">
             <div class="row">
                 <div class="col">
-                    <p class="float-end">Total amount is : $ {{}}</p>
+                    <p class="float-end fs-5">Total amount is : $ {{totalAmount()}}</p>
                 </div>
             </div>
         </div>
@@ -69,7 +69,6 @@
             </div>
         </div>
         <!-- check out -->
-        <!-- {{this.$store.state.local_cart}} -->
     </div>
 
     <div v-else>
@@ -89,7 +88,7 @@ export default {
     name: 'CartView',
     data() {
         return {
-            carts: [],
+            carts: this.$store.state.local_cart,
         }
     },
     mounted() {
@@ -117,9 +116,20 @@ export default {
             var price = cart.qty * cart.price;
             return price.toFixed(2);
         },
-        totalAmount(){
+        totalAmount() {
+            // const arr = [
+            //     { id: 1, salary: 10 },
+            //     { id: 2, salary: 20 },
+            //     { id: 3, salary: 30 },
+            // ];
 
-         
+            const sum = this.carts.reduce((accumulator, object) => {
+                return accumulator + (object.price *object.qty);
+            }, 0);
+
+            // console.log(sum);
+            return sum.toFixed(2);
+
         }
 
 
