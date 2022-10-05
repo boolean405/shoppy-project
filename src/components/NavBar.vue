@@ -30,7 +30,8 @@
                 </ul>
 
                 <router-link to="/cart">
-                    <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-cart-shopping"></i>
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="fa-solid fa-cart-shopping"></i>
                         <span v-if="this.$store.state.local_cart.length > 0">
                             <span class="cart_len rounded-circle">
                                 {{this.$store.state.local_cart.length}}

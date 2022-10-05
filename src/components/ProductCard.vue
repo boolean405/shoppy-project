@@ -2,9 +2,10 @@
     <div class="card p-3 mt-5 mb-3">
         <img :src="product.image" class="card-img-top" height="300">
         <div class="card-body">
-            <h6 class="card-title">{{product.title.substr(0,20)}}</h6>
-            <p class="card-text mt-3">$ {{product.price}}</p>
+            <h5 class="card-title">{{product.title.substr(0,20)}}</h5>
+            <p class="card-text mt-3 fs-5">$ {{product.price}}</p>
             <RatingComp :product="product" :rating="rating"></RatingComp>
+            <p class="fst-italic fw-light">{{rating.count}} Sold</p>
             <a class="btn btn-outline-dark me-3 mt-3" @click="addToCart(product)">Add to cart</a>
             <router-link class="btn btn-outline-dark mt-3" :to="{name: 'details' ,params: {id: product.id}}">
                 Details

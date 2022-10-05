@@ -50,10 +50,10 @@
         <!-- cart -->
 
         <!-- total amount -->
-        <div class="container">
+        <div class="container mb-3">
             <div class="row">
                 <div class="col">
-                    <p>Total amount is : $ {{}}</p>
+                    <p class="float-end">Total amount is : $ {{}}</p>
                 </div>
             </div>
         </div>
@@ -69,6 +69,7 @@
             </div>
         </div>
         <!-- check out -->
+        <!-- {{this.$store.state.local_cart}} -->
     </div>
 
     <div v-else>
@@ -100,7 +101,6 @@ export default {
             let json_cart = JSON.parse(cart);
             // console.log(json_cart)
             this.carts = json_cart;
-
         },
         removeAllCarts() {
             localStorage.clear();
@@ -117,10 +117,10 @@ export default {
             var price = cart.qty * cart.price;
             return price.toFixed(2);
         },
-        // totalAmount(){
+        totalAmount(){
 
          
-        // }
+        }
 
 
     },
