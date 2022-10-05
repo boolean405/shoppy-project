@@ -36,8 +36,6 @@
 
                                         <button type="button" class="btn btn-outline-dark btn-sm" @click="cart.qty++">
                                             <i class="fa-solid fa-plus"></i></button>
-
-
                                     </div>
                                     <p class="my-3">Total : $ {{totalPrice(cart)}}</p>
                                 </div>
@@ -64,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-outline-dark px-5 float-end">Check Out</button>
+                    <button type="button" class="btn btn-dark px-5 float-end">Check Out</button>
                 </div>
             </div>
         </div>
