@@ -39,7 +39,7 @@
 
 
                                     </div>
-                                    <p class="my-3">Total : $ {{cart.price * cart.qty}}</p>
+                                    <p class="my-3">Total : $ {{totalPrice(cart)}}</p>
                                 </div>
                             </div>
                         </div>
@@ -49,6 +49,16 @@
         </div>
         <!-- cart -->
 
+        <!-- total amount -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>Total amount is : $ {{}}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- total amount -->
 
         <!-- check out -->
         <div class="container">
@@ -63,9 +73,8 @@
 
     <div v-else>
         <h2 class="text-center">You have no added items. Go to shop now!</h2>
-        <router-link to="/cart">
-            <button type="button" class="btn btn-outline-dark px-5 mx-auto d-block my-3">
-                <router-link to="/products">Shop Now</router-link>
+        <router-link to="/products">
+            <button type="button" class="btn btn-outline-dark px-5 mx-auto d-block my-3">Shop Now
             </button>
         </router-link>
         <img src="../assets/images/cart/girl_no_cart.jpg" class="img-fluid w-25 rounded mx-auto d-block">
@@ -103,7 +112,16 @@ export default {
                 cart.qty--
 
             }
-        }
+        },
+        totalPrice(cart) {
+            var price = cart.qty * cart.price;
+            return price.toFixed(2);
+        },
+        // totalAmount(){
+
+         
+        // }
+
 
     },
     components: { HeaderText }
