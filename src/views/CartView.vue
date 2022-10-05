@@ -4,7 +4,7 @@
         <div class="row ">
             <div class="col-12" v-if="carts">
                 <!-- <button class="btn btn-primary" type="button">Button</button> -->
-                <button class="btn btn-outline-dark" type="button" @click="removeAllCarts()">Remove Items from
+                <button class="btn btn-outline-dark float-end" type="button" @click="removeAllCarts()">Remove Items from
                     cart</button>
             </div>
         </div>
@@ -22,6 +22,22 @@
                             <div class="card-body">
                                 <h5 class="card-title fs-3">{{cart.title}}</h5>
                                 <p class="card-text fs-4">$ {{cart.price}}</p>
+                                <div>
+                                    <button type="button" class="btn btn-outline-dark btn-sm"
+                                        @click="cartQtyDecr(cart)">
+                                        <i class="fa-solid fa-minus"></i></button>
+
+                                    <span class="mx-5 fs-5">{{cart.qty}}
+                                        <span v-if="cart.qty >1">Items</span>
+                                        <span v-else>Item</span>
+                                    </span>
+
+                                    <button type="button" class="btn btn-outline-dark btn-sm" @click="cart.qty++">
+                                        <i class="fa-solid fa-plus"></i></button>
+
+
+                                </div>
+                                <p class="my-3">Total : $ {{cart.price * cart.qty}}</p>
                             </div>
                         </div>
                     </div>
@@ -30,6 +46,16 @@
         </div>
     </div>
     <!-- cart -->
+
+    <!-- check out -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-outline-dark px-5 float-end">Check Out</button>
+            </div>
+        </div>
+    </div>
+    <!-- check out -->
 </template>
 
 <script>
@@ -56,13 +82,19 @@ export default {
             localStorage.clear();
             location.reload();
         },
+
+        cartQtyDecr(cart) {
+            while (cart.qty > 1) {
+                cart.qty--
+
+            }
+        }
+
     },
     components: { HeaderText }
 }
 
 </script>
-<!-- <style>
-    img{
-        height: 30px;
-    }
-</style> -->
+<style>
+
+</style>

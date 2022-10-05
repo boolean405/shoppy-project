@@ -34,6 +34,7 @@
                         <span v-if="this.$store.state.local_cart.length > 0">
                             <span class="cart_len rounded-circle">
                                 {{this.$store.state.local_cart.length}}
+                                <!-- {{cartNoti()}} -->
                             </span>
                         </span>
                         <span v-else class="cart_len rounded-circle">
@@ -55,8 +56,28 @@ export default {
     data() {
         return {
             default_num: 0,
+            cartArr: this.$store.state.local_cart,
         }
     },
+
+    mounted() {
+
+    },
+    computed: {
+        // cartNoti() {
+        //     console.log(this.cart_arr)
+        //     let cart_length = this.cart_arr.reduce((total, object) => {
+        //         return total + object.qty;
+        //     }, 0);
+        //     console.log(cart_length);
+        //     return cart_length;
+
+        // },
+        
+        // cartNoti() {
+        //     return this.cartArr.reduce((a, row) => a + row.qty, 0)
+        // }
+    }
 
 }
 </script>

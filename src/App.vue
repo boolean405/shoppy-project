@@ -11,8 +11,6 @@
 </template>
 
 <script>
-// import cartCount from './components/ProductCard.vue'
-// console.log(cartCount)
 import NavBar from "./components/NavBar.vue";
 import FooterComp from "./components/FooterComp.vue";
 export default {
