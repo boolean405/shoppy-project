@@ -1,5 +1,5 @@
 <template>
-    <div class="card p-3 mt-5 mb-3">
+    <div class="card p-3 mt-5 mb-3 shadow">
         <img :src="product.image" class="card-img-top" height="300">
         <div class="card-body">
             <h5 class="card-title">{{product.title.substr(0,20)}}</h5>

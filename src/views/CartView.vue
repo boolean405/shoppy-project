@@ -6,8 +6,7 @@
             <div class="row ">
                 <div class="col-12">
                     <!-- <button class="btn btn-primary" type="button">Button</button> -->
-                    <button class="btn btn-outline-dark float-end" type="button" @click="removeAllCarts()">Remove Items
-                        from cart</button>
+                    <button class="btn btn-danger float-end" type="button" @click="removeAllCarts()">Remove cart items <i class="fa-regular fa-trash-can"></i></button>
                 </div>
             </div>
         </div>
@@ -15,15 +14,15 @@
         <div class="container">
             <div class="row" v-for="(cart,index) in carts" :key="index">
                 <div class="col">
-                    <div class="card mb-5">
-                        <div class="row g-0">
+                    <div class="card mb-5 shadow">
+                        <div class="row g-0 ">
                             <div class="col-md-4">
                                 <img :src="cart.image" class="img-fluid rounded mx-auto d-block w-25 my-3">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fs-3">{{cart.title}}</h5>
-                                    <p class="card-text fs-4">$ {{cart.price}}</p>
+                                    <p class="card-title fs-5 fw-bold">{{cart.title.substr(0,20)}}</p>
+                                    <p class="card-text fs-5">$ {{cart.price}}</p>
                                     <div>
                                         <button type="button" class="btn btn-outline-dark btn-sm"
                                             @click="cartQtyDecr(cart)">
@@ -51,7 +50,7 @@
         <div class="container mb-3">
             <div class="row">
                 <div class="col">
-                    <p class="float-end fs-5">Total amount is : $ {{totalAmount()}}</p>
+                    <p class="float-end fs-5 fw-bold">Total amount : $ {{totalAmount()}}</p>
                 </div>
             </div>
         </div>
@@ -90,15 +89,15 @@ export default {
         }
     },
     mounted() {
-        this.getCart();
+        // this.getCart();
     },
     methods: {
-        getCart() {
-            let cart = localStorage.getItem('myCart');
-            let json_cart = JSON.parse(cart);
-            // console.log(json_cart)
-            this.carts = json_cart;
-        },
+        // getCart() {
+        //     let cart = localStorage.getItem('myCart');
+        //     let json_cart = JSON.parse(cart);
+        //     // console.log(json_cart)
+        //     this.carts = json_cart;
+        // },
         removeAllCarts() {
             localStorage.clear();
             location.reload();
@@ -115,16 +114,9 @@ export default {
             return price.toFixed(2);
         },
         totalAmount() {
-            // const arr = [
-            //     { id: 1, salary: 10 },
-            //     { id: 2, salary: 20 },
-            //     { id: 3, salary: 30 },
-            // ];
-
             const sum = this.carts.reduce((accumulator, object) => {
-                return accumulator + (object.price *object.qty);
+                return accumulator + (object.price * object.qty);
             }, 0);
-
             // console.log(sum);
             return sum.toFixed(2);
 

@@ -64,22 +64,15 @@ export default {
     mounted() {
 
     },
-    computed: {
+
+    methods: {
         // cartNoti() {
-        //     console.log(this.cart_arr)
-        //     let cart_length = this.cart_arr.reduce((total, object) => {
-        //         return total + object.qty;
+        //     const len = this.cartArr.reduce((accumulator, object) => {
+        //         return accumulator + object.qty;
         //     }, 0);
-        //     console.log(cart_length);
-        //     return cart_length;
-
+        //     return len;
         // },
-        
-        // cartNoti() {
-        //     return this.cartArr.reduce((a, row) => a + row.qty, 0)
-        // }
-    }
-
+    },
 }
 </script>
 <style>
