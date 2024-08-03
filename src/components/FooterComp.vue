@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="text-light">
                     <p>
-                        Copyright © <a href="/">Shoppy</a> | Created by <a href="https://github.com/maungbo404"
+                        Copyright © <a href="/">Shoppy</a> | Created by <a href="https://github.com/boolean405"
                             target="_blank">Bo Bo Aung</a>
                     </p>
                 </div>
